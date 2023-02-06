@@ -8,12 +8,12 @@ class Attention(nn.Module):
         super(Attention, self).__init__()
 
         # NOTE: We _could_ initialise a separate W and U to project our inputs.
-        # However, we can also utilise one set of weights that projects both inputs at once.
+        # However, we can also utilise ONE set of weights that projects both inputs at once.
         # We simply concatenate our desired inputs together and then feed them to our layer.
         # > With that said, create the alignment function
         self.alignment_layer = nn.Sequential(
-            nn.Linear(3 * hidden_dim, hidden_dim),
-            nn.Tanh()
+
+
         )
 
         # > initialise a V layer (set bias to False)
