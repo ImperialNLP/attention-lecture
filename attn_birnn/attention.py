@@ -17,29 +17,29 @@ class Attention(nn.Module):
         )
 
         # > initialise a V layer (set bias to False)
-        self.v = nn.Linear(hidden_dim, 1, bias=False)
+        self.v =
 
     def forward(self, prev_dec_hidden, enc_outputs):
         # shape(dec_hidden) = [1, B, D]
         # shape(enc_outputs) = [B, I, 2D]
 
         # > prev_dec_hidden should be [B, 1, D]
-        prev_dec_hidden = prev_dec_hidden.permute(1, 0, 2)
+        prev_dec_hidden =
         # shape(dec_hidden) = [B, 1, D]
 
         # > tile/repeat prev_dec_hidden for each word in your source
         src_len = enc_outputs.shape[1]  # I
-        prev_dec_hidden = prev_dec_hidden.repeat(1, src_len, 1)
+        prev_dec_hidden =
         # shape(prev_dec_hidden) = [B, I, D]
 
         # > concatenate previous decoder hidden sates and encoder states
-        concatenated = torch.cat((prev_dec_hidden, enc_outputs), dim=-1)
+        concatenated =
         # shape(concatenated) = [B, I, 3D]
-        energy = self.alignment_layer(concatenated)
+        energy =
         # shape(energy) = [B, I, D]
 
         # > obtain your attention scores/alpha
-        attention = F.softmax(self.v(energy).squeeze(2), dim=1)
+        attention =
         # shape(attention) = [B, I]
 
         return attention
